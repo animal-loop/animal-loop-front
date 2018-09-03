@@ -1,0 +1,393 @@
+@mixin icon( $icon, $color, $top, $left) {
+    &:before{
+        content: $icon;
+        font-family: "Font Awesome 5 Free";
+        color: $color;
+        width: 30px;
+        height: 30px;
+        position: absolute;
+        top: $top;
+        left: $left;
+        z-index: 2;
+	}
+}
+
+.form-input{
+	width: 100%;
+	padding: 0 1em;
+	label{
+		display: block;
+		color: $color-text;
+		padding: .5em 0;
+		font-size: 14px;
+	}
+	textarea{
+		@include reset-appearance;
+		width: 100%;
+		border: solid 1px #ccc;
+		padding: .5em;
+		border-radius: 4px;
+		font-size: 12px;
+		color: $color-text;
+		height: 90px;
+	}
+	.fileContainer {
+	    overflow: hidden;
+	    position: relative;
+	    display: line;
+	    overflow: hidden;
+	}
+
+	input[type="file"] {
+	    cursor: inherit;
+	    display: block;
+	    font-size: 999px;
+	    filter: alpha(opacity=0);
+	    min-height: 100%;
+	    min-width: 100%;
+	    opacity: 0;
+	    position: absolute;
+	    right: 0;
+	    text-align: right;
+	    top: 0;
+	}
+	input[type="button"] {
+	    @include reset-appearance;
+	    border: solid 1px #ccc;
+	    color: color-text;
+	    font-size: 12px;
+	    margin: 0 .5em;
+	    padding: 1em 2em;
+	    border-radius: 4px;
+	    &.green{
+	    	border: solid 1px $green;
+	    	color: $green;
+	    }
+	    &:hover{
+	    	border: solid 1px $yellow;
+	    	color: $yellow;
+	    }
+	}
+}
+
+.box-form{
+	&.flex{
+		display: flex;
+	}
+	&.islabel{
+		> div{
+			width: 100%;
+			&.width200{
+				width: 200px;
+			}
+			label{
+				color: $white;
+				text-transform: uppercase;
+				font-size: $fontMini;
+				font-family: $f-Bold;
+				display: block;
+    			padding: 12px 0 4px 0;
+    			&.special{
+    				color: #747776;
+    				font-size: $fontMini;
+    				font-family: $f-Regular;
+    				text-transform: none;
+    				padding: 0 0 4px 0;
+    				text-transform: uppercase;
+    			}
+    			&.line{
+    				padding: 0 0 0 0;
+    			}
+    			&.modal-label{
+					color: $gris_dark_text;
+				}
+			}
+		}
+	}
+	&.box170{
+		width: 186px;
+		padding: 0 0 0 1em;
+	}
+	&.box300{
+		width: 316px;
+		padding: 0 0 0 1em;
+	}
+	.widthAuto{
+		width: auto;
+	}
+	.multiple-select{
+		border: 1px solid $gris;
+		list-style-type: none;
+		padding:0;
+		margin: 0;
+		border-radius: 4px;
+		li{
+			padding: .5em;
+			font-size: $fontTiny;
+			cursor: pointer;
+			&.select{
+				background: $orange_hover;
+				color: $white;
+			}
+		}
+		.multiple-select-box1{
+			width: 100px;
+		}
+		.multiple-select-box2{
+			width: calc(100% - 100px);
+		}
+
+	}
+	input[type="submit"]{
+		@include reset-appearance;
+		&.login{
+			padding: 1em;
+			background: $orange;
+			color: $white;
+			border-radius: 4px;
+			cursor: pointer;
+			&:hover{
+				background: $orange_hover;
+			}
+		}
+	}
+	input[type="button"]{
+		@include reset-appearance;
+		padding: .5em 1em;
+		background: $orange;
+		color: $white;
+		border-radius: 4px;
+		cursor: pointer;
+		&:hover{
+			background: $orange_hover;
+		}
+	}
+	input[type="text"],input[type="password"]{
+		@include reset-appearance;
+		width: 100%;
+		font-family: $f-Regular;
+		border-radius: 4px;
+		color:$white;
+		background: $input_background;
+		padding: .5em;
+		font-size: $fontTiny;
+		border: 1px $gris solid;
+		&.login{
+			color:$gris_dark_text;
+			background: #C6CDD8;
+		}
+	}
+	/* Icono clear */
+	.box-clear{
+		position: relative;
+		.box-clear-button{
+			position: absolute;
+			right: 4px;
+    		top: 6px;
+			button{
+				@include reset-appearance;
+				color: $gris;
+				font-size: 16px;
+				&:hover{
+					color: $orange;
+				}
+			}
+		}
+	}
+	/* Iconos Input*/
+	&.icon{
+		input[type="text"],input[type="password"]{
+			&.login{
+				border: solid 1px $gris;
+				padding: 10px 5px 10px 30px;
+				font-size: $fontSmall;
+				&:hover{
+					border: solid 1px $hover_ok;
+				}
+			}
+		}
+		position: relative;
+		&.icon_search{@include icon("\f002",$white, 37px, calc(100% - 25px));}
+		&.icon_user{@include icon("\f508",$orange, 10px, 8px);}
+		&.icon_pass{@include icon("\f13e",$orange, 10px, 8px);}
+		&.icon_arrow{@include icon("\f13a",$gris, 37px, calc(100% - 1.4em));}
+		&.icon_arrow_vertical{@include icon("\f13a",$gris, 7px, calc(100% - 1.4em));}
+	}
+	select{
+        @include reset-appearance;
+        position:relative;
+        padding: .7em .3em;
+        width: 100%;
+        color: $white;
+        font-size: $fontTiny;
+        border-radius: 4px;
+        background-color: $input_background;
+        background-repeat: no-repeat;
+        background-size: 10px 10px;
+        background-position: 94% center;
+        border: solid 1px $input_background;
+        &:hover{
+			border: solid 1px #929292;
+		}
+   	}
+}
+
+.buttom_menu{
+	list-style-type: none;
+	padding: 0;
+	margin: 0;
+	min-width: 200px;
+	li{
+		background: $orange;
+		border: solid 1px $orange_hover;
+		color: $white;
+		text-align: center;
+		padding: .5em 2em;
+		font-size: $fontTiny;
+		font-family: $f-Bold;
+		border-radius: 4px;
+		position: relative;
+		
+		a{
+			color: $white;
+			text-decoration: none;
+			cursor: pointer;
+		}
+		&:hover{
+			background: $orange_hover;
+			&:after{
+				content: "";
+				width:100%;
+				height: 15px;
+				top: 26px;
+				left:0;
+				position: absolute;
+			}
+			&:before{
+		        content: "\F0D8";
+			    font-family: "Font Awesome 5 Free";
+			    color: #eeeeee;
+			    width: 30px;
+			    height: 30px;
+			    position: absolute;
+			    top: 29px;
+	    		left: calc(50% - 12px);
+			    font-size: 16px;
+			    z-index: 5;
+			}
+		}
+		> ul{
+			padding: .5em 0;
+			display: none;
+			list-style-type: none;
+			position: absolute;
+			width: 100%;
+		    left: 0;
+		    top: 40px;
+		    background: $white;
+		    border: solid 1px $gris;
+			li{
+				background: $white;
+				border-radius: 0;
+				border: solid 1px $white;
+				text-align:left;
+				padding: .2em .3em;
+				&:before{
+		        	content: "\F0D8";
+		        	display:none;
+				}
+				&:hover{
+					background: $white;
+					a{
+						color: #727272;
+					}
+				}
+				a{
+					color: #adb3b4;
+					text-align:left;
+					font-family: $f-Regular;
+					text-decoration: none;
+				}
+			}
+		}
+		&:hover{
+			> ul{
+				display: block;
+			}
+		}
+	}
+}
+
+.buttom_menu_date{
+	list-style-type: none;
+	position: relative;
+	padding: 0;
+    margin: 0;
+    z-index: 10;
+	li{
+		background-color: $input_background;
+        background-repeat: no-repeat;
+        background-size: 10px 10px;
+        background-position: 94% center;
+		border: solid 1px $input_background;
+		color: $white;
+		padding: 7.7px .5em;
+		font-size: $fontTiny;
+		font-family: $f-Bold;
+		border-radius: 4px;
+		a{
+			color: $white;
+			text-decoration: none;
+			cursor: pointer;
+		}
+		&:hover{
+			border: solid 1px #929292;
+		}
+		> ul{
+			display: none;
+			list-style-type: none;
+			padding: 0;
+			position: absolute;
+			z-index: 10;
+			width: 250px;
+    		left: 0;
+    		top: 51px;		    
+    		border: none;
+    		padding: .5em 0;
+    		@include shadow;
+    		&.active{
+    			display: block;
+    		}
+    		&:before{
+		        content: "\f0d8";
+		        font-family: "Font Awesome 5 Free";
+		        color: $white;
+		        width: 30px;
+		        height: 30px;
+		        position: absolute;
+		        right: 72px;
+			    top: -16px;
+			    font-size: 25px;
+			    z-index:2;
+			}
+			li{
+				background: $white;
+				border-radius: 0;
+				border: none;
+				padding: 5px 1em;
+				&:hover{
+					border: none;
+					a{
+						color: $orange_hover;
+						font-family: $f-Regular;
+					}
+				}
+				a{
+					color: #747776;
+					font-family: $f-Regular;
+					text-decoration: none;
+				}
+			}
+		}
+	}
+}

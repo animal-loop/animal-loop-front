@@ -1,0 +1,2 @@
+export const NOTIFICATION = 'NOTIFICATION';
+export const RESET_HEADER = 'RESET_HEADER';

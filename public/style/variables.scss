@@ -1,0 +1,257 @@
+/* -> Variables <- */
+
+$fontsPath: '../fonts/fonts-lato/';
+$imagesPath: './image/';
+
+/* -> Definiendo tipografiax <- */
+@font-face {
+    font-family: 'latoregular';
+    src: url($fontsPath+'Lato-Regular.ttf') format('truetype'),
+        url($fontsPath + 'lato-regular-webfont.woff2') format('woff2'),
+        url($fontsPath + 'lato-regular-webfont.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'latobold';
+    src: url($fontsPath+'Lato-Bold.ttf') format('truetype'),
+        url($fontsPath + 'lato-bold-webfont.woff2') format('woff2'),
+        url($fontsPath + 'lato-bold-webfont.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'latolight';
+    src: url($fontsPath+'Lato-Light.ttf') format('truetype'),
+        url($fontsPath + 'lato-light-webfont.woff2') format('woff2'),
+        url($fontsPath + 'lato-light-webfont.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+  font-family: 'Font Awesome 5 Free';
+  font-style: normal;
+  font-weight: 900;
+  src: url("../fonts/webfonts/fa-solid-900.eot");
+  src: url("../fonts/webfonts/fa-solid-900.eot?#iefix") format("embedded-opentype"), url("../fonts/webfonts/fa-solid-900.woff2") format("woff2"), url("../fonts/webfonts/fa-solid-900.woff") format("woff"), url("../fonts/webfonts/fa-solid-900.ttf") format("truetype"), url("../fonts/webfonts/fa-solid-900.svg#fontawesome") format("svg"); }
+
+.fa,
+.fas {
+  font-family: 'Font Awesome 5 Free';
+  font-weight: 900; }
+
+
+$f-Regular : 'latoregular';
+$f-Bold : 'latobold';
+$f-Light : 'latolight';
+
+/* -> Definiendo tamanos tipograficos <- */
+$fontMini : 11px;
+$fontTiny : 12px;
+$fontSmall : 14px;
+$fontRegular : 1em;
+$fontRegularBig : 18px;
+$fontRegularBigger : 20px;
+$fontBig : 24px;
+$fontBigger : 28px;
+$fontTall : 32px;
+$fontTaller : 36px;
+$fontReallyBig : 40px;
+$fontHuge : 48px;
+$fontHumongous : 64px;
+
+/* -> Genero un mapa de tamanos <- */
+$tipos : (
+    mini : $fontMini,
+    tiny : $fontTiny,
+    small : $fontSmall,
+    regular : $fontRegular,
+    regular-big : $fontRegularBig,
+    regular-bigger : $fontRegularBigger,
+    big : $fontBig,
+    tall : $fontTall,
+    taller : $fontTaller,
+    really-big : $fontReallyBig,
+    huge : $fontHuge,
+    humongous : $fontHumongous
+);
+
+$ok : #80FF00;
+$error : #DC3522;
+$midle : #F7D358;
+
+$hover_ok: #BEF5D2;
+$hover_error: #F5C8BE;
+$hover_alert: #F7F9AE;
+
+$green : #41c99f;
+$celeste : #70c2f0;
+$red : #cc5660;
+$yellow: #f3b119;
+$color_text: #616161;
+
+$color_alert : rgba(225, 77, 87, 0.8);
+$color_alert_light: rgba(225, 77, 87, 0.2); 
+$color_ok: #71B37C;
+$color_ok_light: rgba(113, 179, 124, 0.2);
+$color_warning: rgba(236, 147, 47, 0.8);
+$color_warning_light: rgba(236, 147, 47, 0.2);
+
+/* Color Gauss */
+$orange : #ea6409;
+$orange_hover: lighten(#ea6409, 20);
+$gris_light: #F2F2F2;
+$gris: #ccc;
+$gris_dark : #2F3336;
+$gris_darker : #333;
+$gris_dark_text: #474747;
+$gris_header: #687676;
+$gris_logo: #444444;
+$gris_header: #878F8F;
+$gris_fondo: #ebebeb;
+
+$input_background: #616161;
+$nav: #343434;
+$header: #454545;
+$text: #838383;
+
+$white_light: #eeeeee;
+$white: #fff;
+$black: #000;
+
+/* -> transition comun <- */
+$transition : all 200ms ease;
+
+/* -> Definiendo mediaqueries <- */
+$max_desktop : 1350px;
+$desktop : 1150px;
+$tablet_horizontal : 1024px;
+$tablet_vertical : 850px;
+$phablet : 640px;
+$phone : 320px;
+
+/* -> Definiendo tamaños comunes <- */
+$label_height : 32px;
+
+@mixin media-query( $type ){
+    @if $type == desktop-max {
+        @media only screen and (min-width: $max_desktop) { @content; }
+    }
+    @if $type == desktop-only {
+        @media only screen and (min-width: $desktop) { @content; }
+    }
+    @if $type == desktop-tablet {
+        @media only screen and (min-width: $tablet_horizontal) and (max-width: $desktop) { @content; }
+    }
+    @if $type == small-desktop-down {
+        @media only screen and (max-width: 1450px) { @content; }
+    }
+    @if $type == tablet-only {
+        @media only screen and (min-width: $tablet_vertical) and (max-width: $tablet_horizontal) { @content; }
+    }
+    @if $type == tablet-down {
+        @media only screen and (max-width: $tablet_horizontal) { @content; }
+    }
+    @if $type == vertical-tablet-up {
+        @media only screen and (min-width: $tablet_vertical) { @content; }
+    }
+    @if $type == vertical-tablet-down {
+        @media only screen and (max-width: $tablet_vertical) { @content; }
+    }
+    @if $type == phablet-only {
+        @media only screen and (min-width: $phablet) and (max-width: $tablet_vertical - 1) { @content; }
+    }
+    @if $type == phablet-down {
+        @media only screen and (max-width: $phablet) { @content; }
+    }
+    @if $type == phone-only {
+        @media only screen and (max-width: $phone) { @content; }
+    }
+}
+@mixin desktop-max { @include media-query(desktop-max) { @content }; }
+@mixin desktop-only { @include media-query(desktop-only) { @content }; }
+@mixin desktop-tablet { @include media-query(desktop-tablet) { @content }; }
+@mixin small-desktop-down { @include media-query(small-desktop-down) { @content }; }
+@mixin tablet-only { @include media-query(tablet-only) { @content }; }
+@mixin tablet-down { @include media-query(tablet-down) { @content }; }
+@mixin vertical-tablet-up { @include media-query(vertical-tablet-up) { @content }; }
+@mixin vertical-tablet-down { @include media-query(vertical-tablet-down) { @content }; }
+@mixin phablet-only { @include media-query(phablet-only) { @content }; }
+@mixin phablet-down { @include media-query(phablet-down) { @content }; }
+@mixin phone-only { @include media-query(phone-only) { @content }; }
+
+///// mapa de media queries
+$medias : (
+    desktop-only,
+    desktop-tablet,
+    small-desktop-down,
+    tablet-only,
+    tablet-down,
+    vertical-tablet-up,
+    vertical-tablet-down,
+    phablet-only,
+    phablet-down,
+    phone-only
+);
+
+@mixin image-replacement {
+    font-size: 0;
+    line-height: 0;
+    color: transparent;
+}
+
+@mixin reset-appearance {
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    -ms-appearance: none;
+    appearance: none;
+    background: none;
+    border-radius: 0px;
+    line-height: 1;
+    border: 0px;
+    outline: 0px;
+    padding: 0px;
+}
+
+@mixin image-replacement {
+    font-size: 0;
+    line-height: 0;
+    font-family: a;
+    color: transparent;
+}
+
+@mixin remove-select-arrow {
+    text-indent: 0.01px;
+    text-overflow: '';
+    &::-ms-expand { display: none; }
+}
+
+@mixin placeholder {
+    &::-webkit-input-placeholder { @content; }
+    &::-moz-placeholder { @content; }
+    &::-ms-input-placeholder { @content; }
+}
+
+@mixin shadow {
+    -webkit-box-shadow: 0px 0px 22px 0px rgba(0,0,0,0.75);
+    -moz-box-shadow: 0px 0px 22px 0px rgba(0,0,0,0.75);
+    box-shadow: 0px 0px 22px 0px rgba(0,0,0,0.75);
+}
+
+@mixin active-state {
+    &:active, &:hover{
+        @content;
+    }
+}
+
+@mixin btn-icon( $name ) {
+    &.icon-left.#{$name}:before, &.icon-right.#{$name}:after, , &.icon-top.#{$name}:before {
+        @content;
+    }
+}
+body{
+    font-family: $f-Regular;
+}

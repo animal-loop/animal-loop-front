@@ -1,0 +1,31 @@
+.top{
+	margin-top: 1em;
+	&.topx1-5{
+		margin-top: 1.5em;
+	}
+	&.topx2{
+		margin-top: 2em;
+	}
+}
+.center{
+	text-align:center;
+}
+.right{
+	text-align: right;
+}
+.padding-right{
+	padding-right: .5em;
+}
+.padding-left{
+	padding-left: .5em;
+}
+.flex{
+	display: flex;
+	&.align-center{
+		align-items: center;
+	}
+	&.justify-center{
+		justify-content: center;
+	}
+}
+
